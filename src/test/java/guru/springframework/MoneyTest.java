@@ -14,4 +14,10 @@ public class MoneyTest {
         product = five.times(3);
         assertEquals(15, product.amount);
     }
+
+    @Test
+    void testEquality(){
+        assertEquals(new Dollar(5), new Dollar(5));
+        assertEquals(new Dollar(5), new Dollar(8));
+    }
 }
