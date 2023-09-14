@@ -1,10 +1,10 @@
 package guru.springframework;
 
 public class Sum implements Expression{
-    Money augmend;
-    Money addmend;
+    Expression augmend;
+    Expression addmend;
 
-    public Sum(Money augmend, Money addmend) {
+    public Sum(Expression augmend, Expression addmend) {
         this.augmend = augmend;
         this.addmend = addmend;
     }
@@ -13,7 +13,13 @@ public class Sum implements Expression{
     //Reducing 2 Money objects into 1 Money object.
     @Override
     public Money reduce(Bank bank, String to){
-        int amount = augmend.amount + addmend.amount;
+        int amount = augmend.reduce(bank, to).amount + addmend.reduce(bank, to).amount;
+
         return new Money(amount, to);
+    }
+
+    @Override
+    public Expression plus(Expression addmend) {
+        return null;
     }
 }
