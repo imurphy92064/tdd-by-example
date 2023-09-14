@@ -2,11 +2,11 @@ package guru.springframework;
 
 public class Dollar extends Money{
 
-    public Dollar(int amount) {
-        this.amount = amount;
+    public Dollar(int amount, String currency) {
+        super(amount, currency);
     }
 
     public Money times(int mulitplier){
-        return new Dollar(this.amount * mulitplier);
+        return Money.dollar(this.amount*mulitplier);
     }
 }
