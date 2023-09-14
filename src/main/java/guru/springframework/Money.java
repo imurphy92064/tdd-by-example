@@ -27,6 +27,7 @@ public class Money implements Expression{
                 && this.currency == money.currency;
     }
 
+    @Override
     public Expression times(int multiplier){
         return new Money(this.amount*multiplier, this.currency);
     }

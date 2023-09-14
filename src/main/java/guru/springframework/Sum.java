@@ -10,6 +10,11 @@ public class Sum implements Expression{
     }
 
 
+    @Override
+    public Expression times(int multiplier) {
+        return new Sum(augmend.times(multiplier), addmend.times(multiplier));
+    }
+
     //Reducing 2 Money objects into 1 Money object.
     @Override
     public Money reduce(Bank bank, String to){
@@ -20,6 +25,6 @@ public class Sum implements Expression{
 
     @Override
     public Expression plus(Expression addmend) {
-        return null;
+        return new Sum(this, addmend);
     }
 }
